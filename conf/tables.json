@@ -1,0 +1,27 @@
+{
+  "customers": {
+    "source_schema": "public",
+    "primary_key": ["customer_id"],
+    "columns": {
+      "customer_id": "BIGINT",
+      "name": "STRING",
+      "email": "STRING",
+      "country": "STRING",
+      "created_at": "TIMESTAMP",
+      "updated_at": "TIMESTAMP"
+    }
+  },
+  "orders": {
+    "source_schema": "public",
+    "primary_key": ["order_id"],
+    "columns": {
+      "order_id": "BIGINT",
+      "customer_id": "BIGINT",
+      "status": "STRING",
+      "amount": "DECIMAL(12,2)",
+      "currency": "STRING",
+      "ordered_at": "TIMESTAMP",
+      "updated_at": "TIMESTAMP"
+    }
+  }
+}

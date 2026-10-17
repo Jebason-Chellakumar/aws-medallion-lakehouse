@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aws-medallion-lakehouse"
+version = "0.1.0"
+description = "Multi-tenant CDC lakehouse on AWS: DMS -> S3 -> Glue (PySpark) -> Apache Iceberg -> Athena"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = ["duckdb>=1.4", "pytest>=8", "ruff>=0.6", "cfn-lint>=1.0"]
+
+[tool.setuptools]
+packages = ["lakehouse", "local_lake"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP045"]
